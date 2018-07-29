@@ -99,6 +99,47 @@ main {
     }
 }
 
+//Work - Projects
+.projects {
+    display: grid;
+    grid-gap: 0.7rem;
+    grid-template-columns: repeat(3, 1fr);
+    img {
+        border: 3px solid white;
+        width: 100%;
+        &:hover {
+            opacity: 0.8;
+            border-color: $secondary-color;
+            @include easeOut;
+        }
+    }
+}
+
+//Butoon Stuff
+.btn {
+    display: block;
+    padding: 0.5rem 1rem;
+    margin-left: 0.4rem;
+    border: 0;
+    margin-bottom: 0.3rem;
+    &:hover {
+        background: $secondary-color;
+        color: #000;
+    }
+}
+
+.btn-dark {
+    @extend .btn;
+    background: lighten($primary-color, 30);
+    color: #fff;
+}
+
+.btn-light {
+    @extend .btn;
+    background: lighten($primary-color, 10);
+    color: #fff;
+}
+
 #main-footer {
     text-align: center;
     padding: 1rem;

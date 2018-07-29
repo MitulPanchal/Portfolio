@@ -51,8 +51,8 @@
         overflow: hidden;
     }
     &-nav {
+        opacity: 0.97;
         margin: 0;
-        opacity: 0.5;
         padding: 0;
         background: black;
         list-style: none;
@@ -64,6 +64,7 @@
         }
     } //Branding Side
     &-branding {
+        opacity: 0.97;
         background: black;
         transform: translate3d(0, 100%, 0);
         @include easeOut;
