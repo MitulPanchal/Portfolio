@@ -25,7 +25,7 @@ h3 {
     }
     &.sm-heading {
         margin-bottom: 2rem;
-        padding: .2rem 1rem;
+        padding: .2rem;
         background: rgba(lighten($primary-color, $amount: 2), 0);
     }
 }
@@ -106,7 +106,9 @@ main {
     grid-template-columns: repeat(3, 1fr);
     img {
         border: 3px solid white;
-        width: 100%;
+        width: 29vw;
+        height: 20vw;
+        object-fit: cover;
         &:hover {
             opacity: 0.8;
             border-color: $secondary-color;
