@@ -45,7 +45,7 @@
     }
   }
   .about-info {
-    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+    grid-template-areas: "bioimage" "bio" "job1" "job2" "job3";
     grid-template-columns: 1fr;
   }
   .projects {
@@ -63,9 +63,11 @@
   }
   .projects {
     grid-template-columns: 1fr;
+    grid-gap: 0rem;
+    margin-left: 0%;
     align-content: center;
     img {
-      width: 70vw;
+      width: 67vw;
       height: 50vw;
     }
   }

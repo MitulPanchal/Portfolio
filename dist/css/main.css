@@ -280,7 +280,7 @@ main {
       height: 150px;
       width: 150px; }
   .about-info {
-    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+    grid-template-areas: "bioimage" "bio" "job1" "job2" "job3";
     grid-template-columns: 1fr; }
   .projects {
     grid-template-columns: repeat(2, 1fr); } }
@@ -292,7 +292,9 @@ main {
     margin-top: 10vh; }
   .projects {
     grid-template-columns: 1fr;
+    grid-gap: 0rem;
+    margin-left: 0%;
     align-content: center; }
     .projects img {
-      width: 70vw;
+      width: 67vw;
       height: 50vw; } }
