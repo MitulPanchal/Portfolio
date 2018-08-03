@@ -291,7 +291,8 @@ main {
   main#home h1 {
     margin-top: 10vh; }
   .projects {
-    grid-template-columns: 1fr; }
+    grid-template-columns: 1fr;
+    align-content: center; }
     .projects img {
       width: 70vw;
       height: 50vw; } }

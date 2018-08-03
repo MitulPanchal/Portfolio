@@ -63,6 +63,7 @@
   }
   .projects {
     grid-template-columns: 1fr;
+    align-content: center;
     img {
       width: 70vw;
       height: 50vw;
