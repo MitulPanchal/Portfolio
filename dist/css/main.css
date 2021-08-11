@@ -32,12 +32,12 @@
     flex-flow: column wrap;
     align-items: center;
     justify-content: center;
-    float: left;
+    float: right;
     width: 50%;
     height: 100vh;
     overflow: hidden; }
   .menu-nav {
-    opacity: 0.97;
+    opacity: 0.98;
     margin: 0;
     padding: 0;
     background: black;
@@ -47,37 +47,37 @@
     .menu-nav.show {
       transform: translate3d(0, 0, 0); }
   .menu-branding {
-    opacity: 0.97;
+    opacity: 0.98;
     background: black;
-    transform: translate3d(0, 100%, 0);
+    transform: translate3d(600px, 0, 0);    
     transition: all 0.5s ease-out; }
     .menu-branding.show {
       transform: translate3d(0, 0, 0); }
     .menu-branding .portrait {
-      width: 250px;
-      height: 250px;
+      width: 300px;
+      height: 300px;
       background: url(../img/Profile.jpg);
       border-radius: 50%;
       background-size: contain;
-      border: 3px solid #7FFF00; }
+      border: 3px solid #fafafa; }
   .menu .nav-item {
-    transform: translate3d(600px, 0, 0);
+    transform: translate3d(-600px, 0, 0);
     transition: all 0.5s ease-out; }
-    .menu .nav-item.show {
+    .menu .nav-item.show {  
       transform: translate3d(0, 0, 0); }
     .menu .nav-item.current > a {
-      color: #7FFF00; }
+      color: #0099ff; }
   .menu .nav-link {
     display: inline-block;
     position: relative;
-    font-size: 30px;
+    font-size: 28px;
     text-transform: uppercase;
     padding: 1rem 0;
     font-weight: 300;
     text-decoration: none;
     transition: all 0.5s ease-out; }
     .menu .nav-link:hover {
-      color: #7FFF00; }
+      color: #00ff95; }
 
 .nav-item:nth-child(1) {
   transition-delay: 0.05s; }
@@ -102,7 +102,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5; }
   body#bg-img {
-    background: url(../img/background.jpeg);
+    background: url(../img/Minimalist.jpg);
     background-attachment: fixed;
     background-size: cover; }
     body#bg-img:after {
@@ -147,7 +147,7 @@ header {
   width: 100%; }
 
 .text-secondary {
-  color: #7FFF00; }
+  color: #0099ff; }
 
 main {
   padding: 4rem;
@@ -157,38 +157,38 @@ main {
   main a {
     padding: 0.4rem; }
     main a:hover {
-      color: #7FFF00;
+      color: #0099ff;
       transition: all 0.5s ease-out; }
   main#home {
     overflow: hidden; }
     main#home h1 {
       margin-top: 20vh; }
 
-.about-info {
-  display: grid;
-  grid-gap: 30px;
-  grid-template-areas: 'bioimage bio bio' 'job1 job2 job3';
-  grid-template-columns: repeat(3, 1fr); }
-  .about-info .bio-image {
-    grid-area: bioimage;
-    margin: auto;
-    border-radius: 50%;
-    border: #7FFF00 3px solid;
-    width: 200px;
-    height: 200px; }
-  .about-info .bio {
-    grid-area: bio;
-    font-size: 1.5rem; }
-  .about-info .job-1 {
-    grid-area: job1; }
-  .about-info .job-2 {
-    grid-area: job2; }
-  .about-info .job-3 {
-    grid-area: job3; }
-  .about-info .job {
-    background: #0d0d0d;
-    padding: 0.5rem;
-    border: white 3px solid; }
+      .about-info {
+        display: grid;
+        grid-gap: 30px;
+        grid-template-areas: 'bioimage bio bio' 'job1 job2 job3';
+        grid-template-columns: repeat(3, 1fr); }
+        .about-info .bio-image {
+          grid-area: bioimage;
+          margin: auto;
+          border-radius: 50%;
+          border: #7FFF00 3px solid;
+          width: 200px;
+          height: 200px; }
+        .about-info .bio {
+          grid-area: bio;
+          font-size: 1.5rem; }
+        .about-info .job-1 {
+          grid-area: job1; }
+        .about-info .job-2 {
+          grid-area: job2; }
+        .about-info .job-3 {
+          grid-area: job3; }
+        .about-info .job {
+          background: #0d0d0d;
+          padding: 0.5rem;
+          border: white 3px solid; }
 
 .projects {
   display: grid;
@@ -205,22 +205,24 @@ main {
       transition: all 0.5s ease-out; }
 
 .boxes {
-  display: flex;
+  display: inline-block;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  margin-top: 1rem; }
+  /*margin-top: 1rem; */}
   .boxes div {
-    font-size: 1rem;
-    border: 3px solid #fff;
+    font-size: 1.2rem;
+    /*border: 3px solid #fff;
     padding: 1.5rem 2.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 3rem;*/
+    padding: 0.2rem 0rem;
+    margin-bottom: 1rem;
     transition: all 0.5s ease-out; }
-    .boxes div:hover {
-      background: #7FFF00;
+    /*.boxes div:hover {
+      background: #0099ff;
       color: #000; }
       .boxes div:hover span {
-        color: #000; }
+        color: #000; }*/
 
 .btn, .btn-dark, .btn-light {
   display: block;
@@ -229,7 +231,7 @@ main {
   border: 0;
   margin-bottom: 0.3rem; }
   .btn:hover, .btn-dark:hover, .btn-light:hover {
-    background: #7FFF00;
+    background: #0099ff;
     color: #000; }
 
 .btn-dark {
@@ -298,3 +300,161 @@ main {
     .projects img {
       width: 67vw;
       height: 50vw; } }
+
+.container{ 
+  background-color: rgb(0, 0, 0); 
+  color: #7f8c97;
+  max-width: 1224px;
+  height: 100%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 2em;
+  position: relative;
+  }
+       
+  .main-title{
+  color: #4e4e4e;
+  font-weight: 600;
+  font-size: 4em;
+  margin-bottom: .3em;
+  /*font-family: "Dosis";*/
+  }
+       .timeline {
+         position: relative;
+         width: auto;
+         margin: 0 auto;
+         margin-top: 3em;
+         padding-bottom: 2em;
+         padding-left: 0;
+       }
+       
+       .timeline:before {
+         position: absolute;
+         left: 50%;
+         top: 0;
+         content: ' ';
+         display: block;
+         width: 4px;
+         height: 100%;
+         margin-left: -3px;
+         background: #0099ff;
+         z-index: 5;
+       }
+       
+       
+       .dir-l, .dir-r{ 
+       position: relative; 
+       width: 40%; 
+       padding: 1.5em 1em; 
+       background: rgb(24, 23, 23); 
+       box-shadow: 0 3px 0 #0099ff; 
+       margin-top: 0; 
+       margin-bottom: 1.5em;
+       }
+       
+      .timeline h1{
+      font-size: 1.6em;
+      color: #fff;
+      width: 90%;
+      margin-top: 0;
+      /*font-family: "Dosis";*/
+      }
+       
+      .timeline p{ 
+        letter-spacing: .5px;
+        font-size: 1.1em;
+        line-height: 1.5em;
+        margin: .5em;
+        margin-top: 1.5em;
+        /*font-family: "Dosis";*/
+      }
+       
+      .timeline img{
+       border-radius: 50%;
+      }
+       
+      .timeline-icon{
+       position: absolute;
+       top: 1em;
+       width: 2.5em;
+       height: 2.5em;
+       right: 0;
+       border-radius: 50%;
+       z-index: 10;
+      }
+       
+      .timeline a{
+       color: #fff;
+       margin-left: .3em;
+      } 
+       
+       .dir-l{ float: left; }
+       
+       .dir-l:before{
+       content: "";
+         display: inline-block;
+         vertical-align: middle;
+         width: 0; 
+         height: 0; 
+         position: absolute;
+         right: -.95em;
+         top: 1em;
+       border-top: 17px solid transparent;
+       border-bottom: 17px solid transparent; 
+       border-left: 15px solid #fff; 
+       }
+       
+       .dir-r{ float: right; }
+       
+       .dir-r:before{
+       content: "";
+         display: inline-block;
+         vertical-align: middle;
+         width: 0; 
+         height: 0; 
+         position: absolute;
+         left: -.9em;
+         top: 1em;
+       border-top: 17px solid transparent;
+       border-bottom: 17px solid transparent; 
+       border-right: 15px solid #fff; 
+       }
+       
+       .timeline-icon{
+       position: absolute;
+       top: -.2em;
+       width: 60px;
+       height: 60px;
+       left: 50%;
+       margin-left: -30px;
+       box-shadow:  0 0 0 4px #0099ff, inset 0 2px 0 rgba(0, 0, 0, 0), 0 0 0 5px rgba(0, 0, 0, 0.15);
+       }
+       
+       .timeline-blocks{
+       display: block;
+       height: auto;
+       padding: 1em 0;
+       position: relative;
+       overflow: hidden;
+       }
+       
+       .timeline img{
+       border-radius: 50%;
+          width: 100%;
+       }
+       
+       .timeline a{
+       color: #fff;
+       margin-left: .3em;
+       } 
+       
+       .timeline-blocks .date-l, .timeline-blocks .date-r{
+       position: absolute;
+       top: 2em;
+       right: 58%;
+       font-size: 1em;
+       }
+       
+       .timeline-blocks .date-r{ left: 54%; right: auto;}
+       
+       .timeline-blocks a:hover{ color: #4B878D; }
