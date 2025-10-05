@@ -1,5 +1,9 @@
-@import 'config';
-@import 'menu';
+// @import 'config';
+// @import 'menu';
+
+@use 'config';
+@use 'menu';
+@use "sass:color";
 * {
     box-sizing: border-box;
 }
@@ -161,14 +165,14 @@ main {
 
 .btn-light {
     @extend .btn;
-    background: lighten($primary-color, 10);
+    background: color.adjust($primary-color, $lightness: 10%);
     color: #fff;
 }
 
 #main-footer {
     text-align: center;
     padding: 1rem;
-    background: darken($color: $primary-color, $amount: 10);
+    background: color.adjust($primary-color, $lightness: -10%);
     height: 60px;
 }
 
