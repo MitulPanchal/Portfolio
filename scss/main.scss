@@ -3,9 +3,14 @@
 
 @use 'config';
 @use 'menu';
+@use 'mixins';
 @use "sass:color";
 * {
     box-sizing: border-box;
+}
+
+.selector {
+  @include mixins.easeOut();
 }
 
 body {
