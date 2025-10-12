@@ -64,7 +64,7 @@ main {
         padding: 0.4rem;
         &:hover {
             color: $secondary-color;
-            @include easeOut();
+            @include mixins.easeOut();
         }
     }
     &#home {
@@ -121,7 +121,7 @@ main {
         &:hover {
             opacity: 0.8;
             border-color: $secondary-color;
-            @include easeOut;
+            @include mixins.easeOut;
         }
     }
 }
@@ -138,7 +138,7 @@ main {
         border: 3px solid #fff;
         padding: 1.5rem 2.5rem;
         margin-bottom: 3rem;
-        @include easeOut;
+        @include mixins.easeOut;
         &:hover {
             background: $secondary-color;
             color: #000;
