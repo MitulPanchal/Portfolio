@@ -5,13 +5,13 @@
     right: 35px;
     top: 35px;
     cursor: pointer;
-    @include easeOut();
+    @include mixins.easeOut();
     .btn-lines {
         width: 28px;
         height: 3px;
         margin: 0px 0px 5px 0px;
         background: white;
-        @include easeOut();
+        @include mixins.easeOut();
     } //Rotate into X with Menu Lines
     &.close {
         transform: rotate(180deg);
@@ -57,7 +57,7 @@
         background: black;
         list-style: none;
         transform: translate3d(0, -100%, 0);
-        @include easeOut;
+        @include mixins.easeOut;
         &.show {
             //Slide in From Top
             transform: translate3d(0, 0, 0);
@@ -67,7 +67,7 @@
         opacity: 0.90;
         background: black;
         transform: translate3d(0, 100%, 0);
-        @include easeOut;
+        @include mixins.easeOut;
         &.show {
             transform: translate3d(0, 0, 0);
         }
@@ -82,7 +82,7 @@
     }
     .nav-item {
         transform: translate3d(600px, 0, 0);
-        @include easeOut;
+        @include mixins.easeOut;
         &.show {
             //Slide in from Right
             transform: translate3d(0, 0, 0);
@@ -99,7 +99,7 @@
         padding: 1rem 0;
         font-weight: 300;
         text-decoration: none;
-        @include easeOut;
+        @include mixins.easeOut;
         &:hover {
             color: $secondary-color;
         }
