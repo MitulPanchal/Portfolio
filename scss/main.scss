@@ -1,19 +1,16 @@
 // @import 'config';
 // @import 'menu';
+@use "mixins";
 @use 'config';
 @use 'menu';
+@use 'mobile';
 @use "sass:color";
 * {
     box-sizing: border-box;
 }
 
-@import 'mixins';
-// @use 'mixins';
-
-
-
 .selector {
-  @include mixins.easeOut;
+  @include easeOut;
 }
 
 body {
@@ -183,5 +180,3 @@ main {
     background: color.adjust($primary-color, $lightness: -10%);
     height: 60px;
 }
-
-@import 'mobile';
