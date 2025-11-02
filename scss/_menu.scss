@@ -69,8 +69,7 @@
         }
     } //Branding Side
     &-branding {
-        opacity: 0.99;
-        background: black;
+        background: rgba(0, 0, 0, 0.95);
         transform: translate3d(0, 100%, 0);
         @include config.easeOut();
         &.show {
