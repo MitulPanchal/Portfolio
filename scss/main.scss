@@ -1,16 +1,19 @@
 // @import 'config';
 // @import 'menu';
-
 @use 'config';
 @use 'menu';
-@use 'mixins';
 @use "sass:color";
 * {
     box-sizing: border-box;
 }
 
+@import 'mixins';
+// @use 'mixins';
+
+
+
 .selector {
-  @include mixins.easeOut();
+  @include mixins.easeOut;
 }
 
 body {
