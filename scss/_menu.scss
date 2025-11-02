@@ -40,6 +40,8 @@
     visibility: hidden;
     &.show {
         visibility: visible;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.7);
     }
     &-branding,
     &-nav {
