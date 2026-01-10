@@ -1,3 +1,5 @@
+@use './config';
+
 //Menu Button
 .menu-btn {
     position: absolute;
@@ -5,13 +7,13 @@
     right: 35px;
     top: 35px;
     cursor: pointer;
-    @include easeOut();
+    @include config.easeOut();
     .btn-lines {
         width: 28px;
         height: 3px;
         margin: 0px 0px 5px 0px;
         background: white;
-        @include easeOut();
+        @include config.easeOut();
     } //Rotate into X with Menu Lines
     &.close {
         transform: rotate(180deg);
@@ -34,10 +36,13 @@
 .menu {
     position: fixed;
     top: 0;
+    height: 100vh;
     width: 100%;
     visibility: hidden;
     &.show {
         visibility: visible;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.7);
     }
     &-branding,
     &-nav {
@@ -57,38 +62,39 @@
         background: black;
         list-style: none;
         transform: translate3d(0, -100%, 0);
-        @include easeOut;
+        @include config.easeOut();
         &.show {
             //Slide in From Top
             transform: translate3d(0, 0, 0);
         }
     } //Branding Side
     &-branding {
-        opacity: 0.90;
-        background: black;
+        background: rgba(0, 0, 0, 1);
         transform: translate3d(0, 100%, 0);
-        @include easeOut;
+        @include config.easeOut();
         &.show {
             transform: translate3d(0, 0, 0);
         }
         .portrait {
+            position: relative;
+            z-index: 1;
             width: 250px;
             height: 250px;
             background: url(../img/Profile.jpg);
             border-radius: 50%;
             background-size: contain;
-            border: 3px solid $secondary-color;
+            border: 3px solid config.$secondary-color;
         }
     }
     .nav-item {
         transform: translate3d(600px, 0, 0);
-        @include easeOut;
+        @include config.easeOut();
         &.show {
             //Slide in from Right
             transform: translate3d(0, 0, 0);
         }
         &.current>a {
-            color: $secondary-color;
+            color: config.$secondary-color;
         }
     }
     .nav-link {
@@ -99,9 +105,9 @@
         padding: 1rem 0;
         font-weight: 300;
         text-decoration: none;
-        @include easeOut;
+        @include config.easeOut();
         &:hover {
-            color: $secondary-color;
+            color: config.$secondary-color;
         }
     }
 }
