@@ -1,123 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel = "icon" href = "img/logo.png" type = "image/x-icon">
-    <title>Mitul Panchal - Work</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<title>Mitul Panchal - Work</title>
+<style>
+body { font-family: 'Inter', sans-serif; }
+
+#work { padding: 5rem 4rem 4rem; max-width: 1200px; margin: 0 auto; }
+
+.section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: .72rem;
+    color: #7FFF00;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: #1e1e1e; }
+
+/* ── Work intro ── */
+.work-intro {
+    margin-bottom: 3.5rem;
+    max-width: 680px;
+}
+.work-intro p {
+    color: #888;
+    font-size: .95rem;
+    line-height: 1.7;
+}
+
+/* ── Project Cards ── */
+.work-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(520px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 5rem;
+}
+
+.work-card {
+    background: #0e0e0e;
+    border: 1px solid #1c1c1c;
+    border-top: 3px solid #7FFF00;
+    padding: 1.8rem 2rem;
+    position: relative;
+    transition: background .3s, transform .25s;
+}
+.work-card:hover {
+    background: #111;
+    transform: translateY(-3px);
+}
+.work-card.internal { border-top-color: #4da6ff; }
+.work-card.internal .work-card-number { color: #4da6ff; }
+.work-card.internal .work-card-type { color: #4da6ff; background: rgba(77,166,255,.08); border-color: rgba(77,166,255,.2); }
+.work-card.internal .work-tag-highlight { color: #4da6ff; }
+
+.work-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+.work-card-number {
+    font-family: 'Space Mono', monospace;
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgba(127,255,0,.15);
+    line-height: 1;
+    flex-shrink: 0;
+    user-select: none;
+}
+.work-card-meta { flex: 1; }
+.work-card-type {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: .68rem;
+    color: #7FFF00;
+    background: rgba(127,255,0,.08);
+    border: 1px solid rgba(127,255,0,.2);
+    padding: .15rem .55rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+}
+.work-card-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: .15rem;
+}
+.work-card-org {
+    font-size: .8rem;
+    color: #555;
+    letter-spacing: .5px;
+}
+
+.work-card-desc {
+    font-size: .88rem;
+    color: #999;
+    line-height: 1.65;
+    margin-bottom: 1.2rem;
+    border-left: 2px solid #1e1e1e;
+    padding-left: .9rem;
+}
+
+.work-card-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.3rem;
+}
+.work-card-bullets li {
+    font-size: .84rem;
+    color: #888;
+    padding: .2rem 0 .2rem 1.1rem;
+    position: relative;
+    line-height: 1.5;
+}
+.work-card-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #7FFF00;
+    font-size: .68rem;
+    top: .32rem;
+}
+.work-card.internal .work-card-bullets li::before { color: #4da6ff; }
+
+.work-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin-bottom: 1.3rem;
+}
+.work-tag {
+    font-size: .71rem;
+    color: #666;
+    background: #141414;
+    border: 1px solid #222;
+    padding: .18rem .5rem;
+    font-family: 'Space Mono', monospace;
+    transition: all .2s;
+}
+.work-tag:hover { color: #7FFF00; border-color: rgba(127,255,0,.3); }
+.work-tag-highlight {
+    color: #7FFF00;
+    background: rgba(127,255,0,.06);
+    border-color: rgba(127,255,0,.25);
+}
+
+.work-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid #1a1a1a;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+.work-card-status {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: .75rem;
+    color: #555;
+}
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #7FFF00;
+    box-shadow: 0 0 6px rgba(127,255,0,.6);
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .4; }
+}
+.work-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: .78rem;
+    color: #555;
+    font-family: 'Space Mono', monospace;
+    border: 1px solid #222;
+    padding: .25rem .65rem;
+    transition: all .3s;
+}
+.work-card-link:hover {
+    color: #7FFF00;
+    border-color: rgba(127,255,0,.4);
+    background: rgba(127,255,0,.04);
+}
+.work-card-link i { font-size: .75rem; }
+
+/* ── GitHub CTA ── */
+.github-cta {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: #0e0e0e;
+    border: 1px solid #1c1c1c;
+    padding: 2rem 2.5rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+.github-cta-text h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: .4rem;
+}
+.github-cta-text p { font-size: .88rem; color: #888; }
+.github-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: #fff;
+    color: #000;
+    font-family: 'Space Mono', monospace;
+    font-size: .82rem;
+    font-weight: 700;
+    padding: .6rem 1.3rem;
+    transition: all .3s;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+.github-cta-link:hover { background: #7FFF00; color: #000; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    #work { padding: 5rem 1.5rem 3rem; }
+    .work-cards { grid-template-columns: 1fr; }
+    .github-cta { flex-direction: column; gap: 1rem; }
+    .github-cta-link { margin-left: 0; }
+}
+@media (max-width: 500px) {
+    .work-card { padding: 1.3rem; }
+    .work-card-number { font-size: 1.5rem; }
+}
+</style>
 </head>
-
 <body>
-    <header>
-        <div class="menu-btn">
-            <div class="btn-lines"></div>
-            <div class="btn-lines"></div>
-            <div class="btn-lines"></div>
-        </div>
-        <nav class="menu">
-            <div class="menu-branding">
-                <div class="portrait"></div>
+<header>
+    <div class="menu-btn"><div class="btn-lines"></div><div class="btn-lines"></div><div class="btn-lines"></div></div>
+    <nav class="menu">
+        <div class="menu-branding"><div class="portrait"></div></div>
+        <ul class="menu-nav">
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About Me</a></li>
+            <li class="nav-item current"><a href="work.html" class="nav-link">My Work</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">How To Reach Me</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="work">
+    <h1 class="lg-heading">My <span class="text-secondary">Work</span></h1>
+    <h2 class="sm-heading">Projects &amp; Professional Contributions</h2>
+
+    <div class="work-intro">
+        <p>A selection of professional projects I've designed and built at ICICI Lombard — spanning data lake architecture, real-time APIs, and automation systems. These are enterprise-grade, production systems serving large-scale BFSI operations.</p>
+    </div>
+
+    <p class="section-label">Featured Projects</p>
+
+    <div class="work-cards">
+
+        <!-- Project 1 -->
+        <div class="work-card">
+            <div class="work-card-header">
+                <div class="work-card-number">01</div>
+                <div class="work-card-meta">
+                    <span class="work-card-type">Automation &middot; BFSI</span>
+                    <div class="work-card-title">Python Automation for Open Architecture Framework</div>
+                    <div class="work-card-org">ICICI Lombard General Insurance</div>
+                </div>
             </div>
-            <ul class="menu-nav">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">
-                        <i class="fa fa-home" aria-hidden="true"></i>  Home
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">
-                        <i class="fa fa-address-card" aria-hidden="true"></i>  About Me
-                    </a>
-                </li>
-                <li class="nav-item current">
-                    <a href="work.html" class="nav-link">
-                        <i class="fa fa-cogs" aria-hidden="true"></i>  My Work
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">
-                        <i class="fa fa-envelope" aria-hidden="true"></i>  How To Reach Me
-                    </a>
-                </li>
+            <p class="work-card-desc">Automated the regulatory SLR calculation process across insurance products — transforming a slow, manual workflow into a near real-time, daily-refresh system.</p>
+            <ul class="work-card-bullets">
+                <li>Reduced processing time from <strong style="color:#fff">7 days to ~2 days</strong> with daily, MTD &amp; YTD refresh</li>
+                <li>Eliminated manual intervention across multiple insurance product lines</li>
+                <li>Built reusable Python automation modules aligned to Open Architecture standards</li>
+                <li>Reduced overall manual effort by <strong style="color:#fff">~70%</strong></li>
             </ul>
-        </nav>
-    </header>
-    <main id="work">
-        <h1 class="lg-heading">
-            My
-            <span class="text-secondary"> Work</span>
-        </h1>
-        <h2 class="sm-heading">
-            Projects I Have Worked On
-        </h2>
-        <div class="projects">
-            <div class="item">
-                <a href="https://github.com/MitulPanchal/Application">
-                    <img class="project-img" src="img/project/android.jpeg" alt="project">
-                </a>
-                <a href="" class="btn-light">
-                    <i class="fas fa-eye"></i>&nbsp;Project
-                </a>
-                <a href="https://github.com/MitulPanchal/Application" class="btn-dark">
-                    <i class="fab fa-github"></i>&nbsp;Github: Final Year Project
-                </a>
+            <div class="work-tags">
+                <span class="work-tag work-tag-highlight">Python</span>
+                <span class="work-tag work-tag-highlight">Azure</span>
+                <span class="work-tag work-tag-highlight">Databricks</span>
+                <span class="work-tag">PySpark</span>
+                <span class="work-tag">Automation</span>
+                <span class="work-tag">BFSI</span>
+                <span class="work-tag">Regulatory</span>
             </div>
-            <div class="item">
-                <a href="https://github.com/MitulPanchal/Todo">
-                    <img class="project-img" src="img/project/Todo.jpeg" alt="project">
-                </a>
-                <a href="" class="btn-light">
-                    <i class="fas fa-eye"></i>&nbsp;Project
-                </a>
-                <a href="https://github.com/MitulPanchal/Todo" class="btn-dark">
-                    <i class="fab fa-github"></i>&nbsp;Github: Todo Application
-                </a>
-            </div>
-            <div class="item">
-                <a href="https://github.com/MitulPanchal/Flask-Blog">
-                    <img class="project-img" src="img/project/Flask.jpg" alt="project">
-                </a>
-                <a href="" class="btn-light">
-                    <i class="fas fa-eye"></i>&nbsp;Project
-                </a>
-                <a href="https://github.com/MitulPanchal/Flask-Blog" class="btn-dark">
-                    <i class="fab fa-github"></i>&nbsp;Github: Flask-Blog
-                </a>
-            </div>
-            <div class="item">
-                <a href="https://github.com/MitulPanchal/Django_App">
-                    <img class="project-img" src="img/project/Django.png" alt="project">
-                </a>
-                <a href="" class="btn-light">
-                    <i class="fas fa-eye"></i>&nbsp;Project
-                </a>
-                <a href="https://github.com/MitulPanchal/Django_App" class="btn-dark">
-                    <i class="fab fa-github"></i>&nbsp;Github: Django-App
-                </a>
-            </div>
-            <div class="item">
-                <a href="https://github.com/MitulPanchal/Portfolio">
-                    <img class="project-img" src="img/project/portfolio.jpg" alt="project">
-                </a>
-                <a href="https://mitulpanchal.github.io/Portfolio/" class="btn-light">
-                    <i class="fas fa-eye"></i>&nbsp;Project
-                </a>
-                <a href="https://github.com/MitulPanchal/Portfolio" class="btn-dark">
-                    <i class="fab fa-github"></i>&nbsp;Github: Portfolio
+            <div class="work-card-footer">
+                <div class="work-card-status">
+                    <div class="status-dot"></div>
+                    Production &middot; Internal
+                </div>
+                <a href="https://github.com/MitulPanchal" class="work-card-link">
+                    <i class="fab fa-github"></i> View Profile
                 </a>
             </div>
         </div>
-    </main>
 
-    <footer id="main-footer">
-        Copyrights &copy; 2018 By Mitul Panchal.
-    </footer>
-    <script src="js/main.js"></script>
+        <!-- Project 2 -->
+        <div class="work-card internal">
+            <div class="work-card-header">
+                <div class="work-card-number">02</div>
+                <div class="work-card-meta">
+                    <span class="work-card-type">Data Platform &middot; Azure</span>
+                    <div class="work-card-title">Enterprise Data Lake Platform</div>
+                    <div class="work-card-org">ICICI Lombard General Insurance</div>
+                </div>
+            </div>
+            <p class="work-card-desc">End-to-end enterprise Data Lake built on Azure and Databricks, ingesting 30+ sources across the organisation using a scalable Medallion architecture.</p>
+            <ul class="work-card-bullets">
+                <li>Designed ingestion architecture for <strong style="color:#fff">30+ sources</strong> — databases, APIs, and flat files</li>
+                <li>Implemented Bronze / Silver / Gold Medallion layers with Delta Lake</li>
+                <li>Built reusable ingestion frameworks reducing onboarding time for new sources</li>
+                <li>Platform owner managing Databricks workspace for <strong style="color:#fff">50+ users</strong> with Unity Catalog &amp; cost governance</li>
+            </ul>
+            <div class="work-tags">
+                <span class="work-tag work-tag-highlight">Azure</span>
+                <span class="work-tag work-tag-highlight">Databricks</span>
+                <span class="work-tag work-tag-highlight">Delta Lake</span>
+                <span class="work-tag">Azure Synapse</span>
+                <span class="work-tag">ADLS</span>
+                <span class="work-tag">Unity Catalog</span>
+                <span class="work-tag">Python</span>
+                <span class="work-tag">SQL</span>
+                <span class="work-tag">Medallion Architecture</span>
+            </div>
+            <div class="work-card-footer">
+                <div class="work-card-status">
+                    <div class="status-dot" style="background:#4da6ff;box-shadow:0 0 6px rgba(77,166,255,.6)"></div>
+                    Production &middot; Internal
+                </div>
+                <a href="https://github.com/MitulPanchal" class="work-card-link">
+                    <i class="fab fa-github"></i> View Profile
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="work-card">
+            <div class="work-card-header">
+                <div class="work-card-number">03</div>
+                <div class="work-card-meta">
+                    <span class="work-card-type">API Development &middot; Real-Time</span>
+                    <div class="work-card-title">Customer Eligibility API</div>
+                    <div class="work-card-org">ICICI Lombard General Insurance</div>
+                </div>
+            </div>
+            <p class="work-card-desc">A high-performance eligibility determination system using CDC-based processing, Cosmos DB, and Azure Functions — consumed directly by customer-facing mobile applications.</p>
+            <ul class="work-card-bullets">
+                <li>Built large base datasets using <strong style="color:#fff">CDC logic</strong> for near real-time customer data freshness</li>
+                <li>Stored eligible customer records in <strong style="color:#fff">Cosmos DB</strong> for low-latency API reads</li>
+                <li>Exposed via Azure Function APIs integrated into mobile applications</li>
+                <li>Designed customer identity mapping (Cluster ID) to unify lead &amp; customer records</li>
+            </ul>
+            <div class="work-tags">
+                <span class="work-tag work-tag-highlight">Azure Functions</span>
+                <span class="work-tag work-tag-highlight">Cosmos DB</span>
+                <span class="work-tag work-tag-highlight">CDC</span>
+                <span class="work-tag">REST APIs</span>
+                <span class="work-tag">Python</span>
+                <span class="work-tag">Databricks</span>
+                <span class="work-tag">Delta Lake</span>
+            </div>
+            <div class="work-card-footer">
+                <div class="work-card-status">
+                    <div class="status-dot"></div>
+                    Production &middot; Internal
+                </div>
+                <a href="https://github.com/MitulPanchal" class="work-card-link">
+                    <i class="fab fa-github"></i> View Profile
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="work-card internal">
+            <div class="work-card-header">
+                <div class="work-card-number">04</div>
+                <div class="work-card-meta">
+                    <span class="work-card-type">Real-Time &middot; ML Scoring</span>
+                    <div class="work-card-title">Real-Time Event Scoring Platform</div>
+                    <div class="work-card-org">ICICI Lombard General Insurance</div>
+                </div>
+            </div>
+            <p class="work-card-desc">Migrated a batch scoring system to near real-time event processing — enabling live business rule scoring across 9 features with integrated OCR-based document verification.</p>
+            <ul class="work-card-bullets">
+                <li>Migrated from <strong style="color:#fff">15-minute batch</strong> to near real-time event ingestion &amp; scoring</li>
+                <li>Enabled real-time scoring for <strong style="color:#fff">9 business features</strong> simultaneously</li>
+                <li>Integrated OCR-based document validation into the scoring pipeline</li>
+                <li>Integrated Data Lake with marketing (SMS/Email/IVR) and call-centre systems</li>
+            </ul>
+            <div class="work-tags">
+                <span class="work-tag work-tag-highlight">Real-Time Processing</span>
+                <span class="work-tag work-tag-highlight">Azure</span>
+                <span class="work-tag work-tag-highlight">Databricks</span>
+                <span class="work-tag">OCR</span>
+                <span class="work-tag">Python</span>
+                <span class="work-tag">PySpark</span>
+                <span class="work-tag">Event Streaming</span>
+                <span class="work-tag">Business Rules</span>
+            </div>
+            <div class="work-card-footer">
+                <div class="work-card-status">
+                    <div class="status-dot" style="background:#4da6ff;box-shadow:0 0 6px rgba(77,166,255,.6)"></div>
+                    Production &middot; Internal
+                </div>
+                <a href="https://github.com/MitulPanchal" class="work-card-link">
+                    <i class="fab fa-github"></i> View Profile
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- GitHub CTA -->
+    <div class="github-cta">
+        <div class="github-cta-text">
+            <h3>More on GitHub</h3>
+            <p>Explore my open-source projects including Flask apps, Django deployments, Android apps, and Python tools.</p>
+        </div>
+        <a href="https://github.com/MitulPanchal" target="_blank" class="github-cta-link">
+            <i class="fab fa-github"></i> github.com/MitulPanchal
+        </a>
+    </div>
+
+</main>
+
+<footer id="main-footer">Copyrights &copy; 2025 By Mitul Panchal.</footer>
+<script src="js/main.js"></script>
 </body>
-
 </html>
