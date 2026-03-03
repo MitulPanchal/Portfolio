@@ -18,7 +18,7 @@ body{font-family:'Inter',sans-serif}
 .contact-intro p{font-size:.97rem;color:#888;line-height:1.75}
 
 /* ── Contact Cards Grid ── */
-.contact-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-bottom:3rem}
+.contact-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1rem;margin-bottom:3rem}
 
 .contact-card{
   background:#0e0e0e;
@@ -45,7 +45,7 @@ body{font-family:'Inter',sans-serif}
 
 .contact-card-body{}
 .contact-card-label{font-family:'Space Mono',monospace;font-size:.65rem;color:#555;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:.25rem}
-.contact-card-value{font-size:.92rem;color:#ddd;font-weight:500;word-break:break-all}
+.contact-card-value{font-size:.92rem;color:#ddd;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .contact-card:hover .contact-card-value{color:#7FFF00}
 .contact-card.blue:hover .contact-card-value{color:#4da6ff}
 .contact-card.orange:hover .contact-card-value{color:#ff9f40}
