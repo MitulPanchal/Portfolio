@@ -52,6 +52,19 @@
   .projects {
     grid-template-columns: repeat(2, 1fr);
   }
+  .hero-bio {
+      grid-template-columns: 1fr;
+      text-align: center;
+      justify-items: center;
+  }
+  .hero-links { justify-content: center; }
+  .timeline::before { left: 13px; }
+  .timeline-item { grid-template-columns: 28px 1fr; gap: 0 1rem; }
+  .card-header { flex-direction: column; }
+  .about-info {
+      grid-template-areas: "bioimage" "bio";
+      grid-template-columns: 1fr;
+  }
 }
 
 //Smartphones
@@ -72,4 +85,6 @@
       height: 50vw;
     }
   }
+  .key-projects-grid,
+  .skills-grid { grid-template-columns: 1fr; }
 }

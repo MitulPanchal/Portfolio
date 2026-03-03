@@ -1,16 +1,7 @@
-// @import 'config';
-// @import 'menu';
-
-@use 'config';
-@use 'menu';
-@use 'mobile';
-@use "sass:color";
+@import 'config';
+@import 'menu';
 * {
     box-sizing: border-box;
-}
-
-.selector {
-  @include config.easeOut();
 }
 
 body {
@@ -23,63 +14,49 @@ body {
     line-height: 1.5;
 }
 
-//Headings
-h1,
-h2,
-h3 {
+h1, h2, h3 {
     margin: 0;
     font-weight: 400;
-    &.lg-heading {
-        font-size: 6rem;
-    }
+    &.lg-heading { font-size: 6rem; }
     &.sm-heading {
         margin-bottom: 2rem;
         padding: .2rem;
-        background: rgba(lighten(config.$primary-color, $amount: 2), 0);
+        background: rgba(lighten($primary-color, $amount: 2), 0);
     }
 }
 
-a {
-    color: #fff;
-    text-decoration: none;
-}
+a { color: #fff; text-decoration: none; }
 
-header {
-    position: fixed;
-    z-index: 2;
-    width: 100%;
-}
+header { position: fixed; z-index: 2; width: 100%; }
 
 .text-secondary {
-    color: config.$secondary-color;
+    color: $secondary-color;
 }
 
 main {
-    padding: 4rem; //height: 100%;
+    padding: 4rem;
     min-height: calc(100vh - 60px);
-    .icons {
-        margin-top: 1rem;
-    }
+    .icons { margin-top: 1rem; }
     a {
         padding: 0.4rem;
         &:hover {
-            color: config.$secondary-color;
-            @include config.easeOut();
+            color: $secondary-color;
+            @include easeOut();
         }
     }
     &#home {
         overflow: hidden;
-        h1 {
-            margin-top: 20vh;
-        }
+        h1 { margin-top: 20vh; }
     }
 }
 
+// ── About: hero bio row ──
 .about-info {
     display: grid;
     grid-gap: 30px;
-    grid-template-areas: 'bioimage bio bio' 'job1 job2 job3';
+    grid-template-areas: 'bioimage bio bio';
     grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 3rem;
     .bio-image {
         grid-area: bioimage;
         margin: auto;
@@ -87,6 +64,7 @@ main {
         border: config.$secondary-color 3px solid;
         width: 200px;
         height: 200px;
+        object-fit: cover;
     }
     .bio {
         grid-area: bio;
@@ -102,13 +80,59 @@ main {
         grid-area: job3;
     }
     .job {
-        background: lighten(config.$primary-color, 5);
+        background: lighten($primary-color, 5);
         padding: 0.5rem;
         border: white 3px solid;
     }
 }
 
-//Work - Projects
+// ── Key Projects ──
+.key-projects-section { margin-bottom: 3rem; }
+.key-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+    gap: 1rem;
+}
+.project-card {
+    background: #0e0e0e;
+    border: 1px solid #1c1c1c;
+    padding: 1.2rem;
+    position: relative;
+    overflow: hidden;
+    @include easeOut;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, $secondary-color, transparent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s;
+    }
+    &:hover { background: #111; }
+    &:hover::after { transform: scaleX(1); }
+}
+.project-icon {
+    font-size: 1.3rem;
+    color: $secondary-color;
+    margin-bottom: 0.65rem;
+    opacity: 0.75;
+}
+.project-name {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.6rem;
+}
+.project-list {
+    padding-left: 1rem;
+    color: #777;
+    font-size: 0.82rem;
+    line-height: 1.65;
+}
+
+// ── Work Projects ──
 .projects {
     display: grid;
     grid-gap: 0.7rem;
@@ -126,7 +150,7 @@ main {
     }
 }
 
-//Contact Page
+// ── Contact ──
 .boxes {
     display: flex;
     flex-wrap: wrap;
@@ -142,14 +166,12 @@ main {
         &:hover {
             background: config.$secondary-color;
             color: #000;
-            span {
-                color: #000;
-            }
+            span { color: #000; }
         }
     }
 }
 
-//Butoon Stuff
+// ── Buttons ──
 .btn {
     display: block;
     padding: 0.5rem 1rem;
@@ -157,20 +179,20 @@ main {
     border: 0;
     margin-bottom: 0.3rem;
     &:hover {
-        background: config.$secondary-color;
+        background: $secondary-color;
         color: #000;
     }
 }
 
 .btn-dark {
     @extend .btn;
-    background: lighten(config.$primary-color, 30);
+    background: lighten($primary-color, 30);
     color: #fff;
 }
 
 .btn-light {
     @extend .btn;
-    background: color.adjust(config.$primary-color, $lightness: 10%);
+    background: lighten($primary-color, 10);
     color: #fff;
 }
 
