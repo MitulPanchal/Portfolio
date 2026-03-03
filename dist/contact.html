@@ -1,103 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel = "icon" href = "img/logo.png" type = "image/x-icon">
-    <title>Contact Me</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<title>Mitul Panchal - Contact</title>
+<style>
+body{font-family:'Inter',sans-serif}
+#contact{padding:5rem 4rem 4rem;max-width:1000px;margin:0 auto}
+
+.section-label{font-family:'Space Mono',monospace;font-size:.72rem;color:#7FFF00;letter-spacing:3px;text-transform:uppercase;margin-bottom:1.3rem;display:flex;align-items:center;gap:.8rem}
+.section-label::after{content:'';flex:1;height:1px;background:#1e1e1e}
+
+/* ── Intro ── */
+.contact-intro{margin-bottom:3.5rem;max-width:560px}
+.contact-intro p{font-size:.97rem;color:#888;line-height:1.75}
+
+/* ── Contact Cards Grid ── */
+.contact-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-bottom:3rem}
+
+.contact-card{
+  background:#0e0e0e;
+  border:1px solid #1c1c1c;
+  border-left:3px solid #7FFF00;
+  padding:1.3rem 1.5rem;
+  display:flex;align-items:center;gap:1.1rem;
+  transition:background .3s,transform .25s;
+  text-decoration:none;
+  color:#fff;
+}
+.contact-card:hover{background:#111;transform:translateY(-3px);color:#fff}
+.contact-card.blue{border-left-color:#4da6ff}
+.contact-card.orange{border-left-color:#ff9f40}
+
+.contact-card-icon{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(127,255,0,.08);border:1px solid rgba(127,255,0,.2);
+  font-size:1rem;color:#7FFF00;flex-shrink:0;
+}
+.contact-card.blue .contact-card-icon{background:rgba(77,166,255,.08);border-color:rgba(77,166,255,.2);color:#4da6ff}
+.contact-card.orange .contact-card-icon{background:rgba(255,159,64,.08);border-color:rgba(255,159,64,.2);color:#ff9f40}
+
+.contact-card-body{}
+.contact-card-label{font-family:'Space Mono',monospace;font-size:.65rem;color:#555;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:.25rem}
+.contact-card-value{font-size:.92rem;color:#ddd;font-weight:500;word-break:break-all}
+.contact-card:hover .contact-card-value{color:#7FFF00}
+.contact-card.blue:hover .contact-card-value{color:#4da6ff}
+.contact-card.orange:hover .contact-card-value{color:#ff9f40}
+
+/* ── Social Links ── */
+.social-section{margin-bottom:3rem}
+.social-grid{display:flex;flex-wrap:wrap;gap:.8rem}
+
+.social-card{
+  display:inline-flex;align-items:center;gap:.7rem;
+  background:#0e0e0e;border:1px solid #1c1c1c;
+  padding:.8rem 1.3rem;
+  font-size:.85rem;color:#aaa;
+  text-decoration:none;
+  transition:all .3s;
+  font-family:'Space Mono',monospace;
+}
+.social-card i{font-size:1rem}
+.social-card:hover{color:#7FFF00;border-color:rgba(127,255,0,.4);background:#111;transform:translateY(-2px)}
+.social-card.linkedin:hover{color:#0a66c2;border-color:rgba(10,102,194,.4)}
+.social-card.github:hover{color:#fff;border-color:#444}
+.social-card.instagram:hover{color:#e1306c;border-color:rgba(225,48,108,.4)}
+.social-card.telegram:hover{color:#2aabee;border-color:rgba(42,171,238,.4)}
+.social-card.facebook:hover{color:#1877f2;border-color:rgba(24,119,242,.4)}
+
+/* ── Availability Banner ── */
+.availability-banner{
+  background:#0e0e0e;border:1px solid #1c1c1c;
+  border-top:3px solid #7FFF00;
+  padding:1.5rem 2rem;
+  display:flex;align-items:center;gap:1.5rem;
+  flex-wrap:wrap;
+}
+.avail-dot{width:10px;height:10px;border-radius:50%;background:#7FFF00;box-shadow:0 0 8px rgba(127,255,0,.6);flex-shrink:0;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.avail-text h4{font-family:'Space Mono',monospace;font-size:.88rem;font-weight:700;margin-bottom:.2rem}
+.avail-text p{font-size:.82rem;color:#666}
+.avail-cta{
+  margin-left:auto;
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:#7FFF00;color:#000;
+  font-family:'Space Mono',monospace;font-size:.78rem;font-weight:700;
+  padding:.55rem 1.2rem;
+  text-decoration:none;
+  transition:all .3s;
+  white-space:nowrap;flex-shrink:0;
+}
+.avail-cta:hover{background:#fff;color:#000}
+
+@media(max-width:768px){
+  #contact{padding:5rem 1.5rem 3rem}
+  .contact-cards{grid-template-columns:1fr}
+  .availability-banner{flex-direction:column;align-items:flex-start}
+  .avail-cta{margin-left:0}
+}
+@media(max-width:500px){
+  .social-grid{gap:.5rem}
+  .social-card{padding:.65rem 1rem;font-size:.78rem}
+}
+</style>
 </head>
+<body>
+<header>
+  <div class="menu-btn"><div class="btn-lines"></div><div class="btn-lines"></div><div class="btn-lines"></div></div>
+  <nav class="menu">
+    <div class="menu-branding"><div class="portrait"></div></div>
+    <ul class="menu-nav">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="about.html" class="nav-link">About Me</a></li>
+      <li class="nav-item"><a href="work.html" class="nav-link">My Work</a></li>
+      <li class="nav-item current"><a href="contact.html" class="nav-link">How To Reach Me</a></li>
+    </ul>
+  </nav>
+</header>
 
-<body id="bg-img">
-    <header>
-        <div class="menu-btn">
-            <div class="btn-lines"></div>
-            <div class="btn-lines"></div>
-            <div class="btn-lines"></div>
-        </div>
-        <nav class="menu">
-            <div class="menu-branding">
-                <div class="portrait"></div>
-            </div>
-            <ul class="menu-nav">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">
-                        <i class="fa fa-home" aria-hidden="true"></i>  Home
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">
-                        <i class="fa fa-address-card" aria-hidden="true"></i>  About Me
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="work.html" class="nav-link">
-                        <i class="fa fa-cogs" aria-hidden="true"></i>  My Work
-                    </a>
-                </li>
-                <li class="nav-item current">
-                    <a href="contact.html" class="nav-link">
-                        <i class="fa fa-envelope" aria-hidden="true"></i>  How To Reach Me
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main id="contact">
-        <h1 class="lg-heading">
-            Get in 
-            <span class="text-secondary"> touch!</span>
-        </h1>
-        <br>
-        
-        <!-- <h2 class="sm-heading">
-            This is how you can reach out to me -            
-        </h2> -->
-       
-        <!-- <span class="text-secondary" style="font-size: 25px;"><b>Name:</b></span>
-        <b style="color:cadetblue; font-size: 25px;">Mitul Panchal</b> -->
-        <div class="boxes">
-            <div class="contact-info">
-                <span class="text-secondary"><b>Mobile No:</b></span>
-                (+91) 9157902176                 
-            </div>
-            <div class="contact-info">
-                <span class="text-secondary"><b>Primary Email:</b></span> 
-                <a href="mailto:imitulpanchal@gmail.com">imitulpanchal@gmail.com</a>
-            </div>
-            <div class="contact-info">
-                <span class="text-secondary"><b>Secondary Email:</b></span> 
-                <a href="mailto:imitulpanchal@outlook.in">imitulpanchal@outlook.in</a>
-            </div>
-        </div>
-        <span class="text-secondary" style="font-size: 25px;"><b>Social Links:</b></span>
-        <div class="icons">
-            <a href="https://www.facebook.com/imitulpanchal">
-                <i class="fab fa-facebook fa-2x"></i>
-            </a>
-            <a href="https://github.com/MitulPanchal">
-                <i class="fab fa-github fa-2x"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/mitul-panchal-7a22a6a2/">
-                <i class="fab fa-linkedin fa-2x"></i>
-            </a>
-            <a href="https://www.instagram.com/imitulpanchal/">
-                <i class="fab fa-instagram fa-2x"></i>
-            </a>
-            <a href="https://t.me/Imitulpanchal">
-                <i class="fab fa-telegram fa-2x"></i>
-            </a>
-        </div>
-    </main>
+<main id="contact">
+  <h1 class="lg-heading">Get In <span class="text-secondary">Touch</span></h1>
+  <h2 class="sm-heading">Let's connect &mdash; I'm always open to new opportunities</h2>
 
-    <footer id="main-footer">
-        Copyrights &copy; 2018 By Mitul Panchal.
-    </footer>
-    <script src="js/main.js"></script>
+  <div class="contact-intro">
+    <p>Whether you're looking for a Lead Data Engineer, want to discuss a data platform project, or just want to say hello &mdash; my inbox is always open. I'll do my best to get back to you promptly.</p>
+  </div>
+
+  <!-- CONTACT DETAILS -->
+  <p class="section-label">Direct Contact</p>
+  <div class="contact-cards">
+
+    <a href="mailto:imitulpanchal@gmail.com" class="contact-card">
+      <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+      <div class="contact-card-body">
+        <div class="contact-card-label">Primary Email</div>
+        <div class="contact-card-value">imitulpanchal@gmail.com</div>
+      </div>
+    </a>
+
+    <a href="mailto:imitulpanchal@outlook.in" class="contact-card blue">
+      <div class="contact-card-icon"><i class="fas fa-envelope-open"></i></div>
+      <div class="contact-card-body">
+        <div class="contact-card-label">Secondary Email</div>
+        <div class="contact-card-value">imitulpanchal@outlook.in</div>
+      </div>
+    </a>
+
+    <a href="tel:+919157902176" class="contact-card orange">
+      <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
+      <div class="contact-card-body">
+        <div class="contact-card-label">Mobile</div>
+        <div class="contact-card-value">(+91) 9157902176</div>
+      </div>
+    </a>
+
+    <a href="#" class="contact-card">
+      <div class="contact-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+      <div class="contact-card-body">
+        <div class="contact-card-label">Location</div>
+        <div class="contact-card-value">Mumbai, Maharashtra, India</div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- SOCIAL LINKS -->
+  <p class="section-label">Social &amp; Professional</p>
+  <div class="social-grid">
+    <a href="https://www.linkedin.com/in/mitul-panchal-7a22a6a2/" target="_blank" class="social-card linkedin">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+    <a href="https://github.com/MitulPanchal" target="_blank" class="social-card github">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+    <a href="https://www.facebook.com/imitulpanchal" target="_blank" class="social-card facebook">
+      <i class="fab fa-facebook"></i> Facebook
+    </a>
+    <a href="https://www.instagram.com/imitulpanchal" target="_blank" class="social-card instagram">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    <a href="https://t.me/imitulpanchal" target="_blank" class="social-card telegram">
+      <i class="fab fa-telegram"></i> Telegram
+    </a>
+  </div>
+
+  <!-- AVAILABILITY BANNER -->
+  <div class="availability-banner" style="margin-top:3rem">
+    <div class="avail-dot"></div>
+    <div class="avail-text">
+      <h4>Open to Opportunities</h4>
+      <p>Available for senior data engineering roles, consulting, and platform architecture discussions.</p>
+    </div>
+    <a href="mailto:imitulpanchal@gmail.com" class="avail-cta">
+      <i class="fas fa-paper-plane"></i> Send a Message
+    </a>
+  </div>
+
+</main>
+
+<footer id="main-footer">Copyrights &copy; 2025 By Mitul Panchal.</footer>
+<script src="js/main.js"></script>
 </body>
-
 </html>
