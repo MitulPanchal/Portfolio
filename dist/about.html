@@ -1,83 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
-    <title>Mitul Panchal - About</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<title>Mitul Panchal - About</title>
+<style>
+body{background:#080808;font-family:'Inter',sans-serif;color:#fff;line-height:1.5}a{color:#fff;text-decoration:none}
+.menu-btn{position:fixed;z-index:100;right:35px;top:35px;cursor:pointer;transition:all .5s ease-out}.menu-btn .btn-lines{width:28px;height:3px;margin:0 0 5px;background:#fff;transition:all .5s ease-out}.menu-btn.close{transform:rotate(180deg)}.menu-btn.close .btn-lines:nth-child(1){transform:rotate(45deg) translate(5px,5px)}.menu-btn.close .btn-lines:nth-child(2){opacity:0}.menu-btn.close .btn-lines:nth-child(3){transform:rotate(-45deg) translate(7px,-6px)}
+.menu{position:fixed;top:0;width:100%;height:100vh;visibility:hidden;z-index:50}.menu.show{visibility:visible}.menu-branding,.menu-nav{display:flex;flex-flow:column wrap;align-items:center;justify-content:center;float:left;width:50%;height:100vh;overflow:hidden}.menu-nav{margin:0;padding:0;background:#000;list-style:none;transform:translate3d(0,-100%,0);transition:all .5s ease-out}.menu-nav.show{transform:translate3d(0,0,0)}.menu-branding{background:#0d0d0d;transform:translate3d(0,100%,0);transition:all .5s ease-out}.menu-branding.show{transform:translate3d(0,0,0)}.portrait{width:250px;height:250px;background:url(img/portfolio.jpeg) center/cover;border-radius:50%;border:3px solid #7FFF00}.menu .nav-item{transform:translate3d(600px,0,0);transition:all .5s ease-out}.menu .nav-item.show{transform:translate3d(0,0,0)}.menu .nav-item.current>a{color:#7FFF00}.menu .nav-link{display:inline-block;font-size:30px;text-transform:uppercase;padding:1rem 0;font-weight:300;color:#fff;transition:all .5s ease-out}.menu .nav-link:hover{color:#7FFF00}.nav-item:nth-child(1){transition-delay:.05s}.nav-item:nth-child(2){transition-delay:.1s}.nav-item:nth-child(3){transition-delay:.15s}.nav-item:nth-child(4){transition-delay:.2s}header{position:fixed;z-index:2;width:100%}
+#about{padding:5rem 4rem 4rem;max-width:1200px;margin:0 auto}
+.hero-bio{display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:center;margin-bottom:4rem;padding-bottom:3rem;border-bottom:1px solid #1a1a1a}.hero-photo{width:160px;height:160px;border-radius:50%;border:3px solid #7FFF00;object-fit:cover;box-shadow:0 0 30px rgba(127,255,0,.2)}.hero-text h1{font-family:'Space Mono',monospace;font-size:2.6rem;font-weight:700;margin-bottom:.3rem;line-height:1.1}.hero-text h1 span{color:#7FFF00}.hero-role{font-size:1rem;color:#7FFF00;letter-spacing:2px;text-transform:uppercase;font-weight:500;margin-bottom:1rem;font-family:'Space Mono',monospace}.hero-summary{font-size:.97rem;color:#bbb;line-height:1.75;max-width:680px}.hero-links{display:flex;gap:.8rem;margin-top:1.2rem;flex-wrap:wrap}.hero-links a{display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;color:#aaa;border:1px solid #2a2a2a;padding:.3rem .75rem;transition:all .3s}.hero-links a:hover{color:#7FFF00;border-color:#7FFF00;background:rgba(127,255,0,.05)}
+.section-label{font-family:'Space Mono',monospace;font-size:.72rem;color:#7FFF00;letter-spacing:3px;text-transform:uppercase;margin-bottom:1.3rem;display:flex;align-items:center;gap:.8rem}.section-label::after{content:'';flex:1;height:1px;background:#1e1e1e}
+.skills-section{margin-bottom:4rem}.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1rem}.skill-card{background:#0e0e0e;border:1px solid #1c1c1c;border-left:3px solid #7FFF00;padding:1.1rem 1.2rem;transition:background .3s,transform .2s}.skill-card:hover{background:#111;transform:translateY(-2px)}.skill-card-title{font-family:'Space Mono',monospace;font-size:.73rem;color:#7FFF00;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:.7rem}.skill-tags{display:flex;flex-wrap:wrap;gap:.35rem}.skill-tag{font-size:.77rem;color:#ccc;background:#181818;border:1px solid #2a2a2a;padding:.18rem .5rem}
+.experience-section{margin-bottom:4rem}.timeline{position:relative}.timeline::before{content:'';position:absolute;left:18px;top:6px;bottom:6px;width:2px;background:linear-gradient(to bottom,#7FFF00,rgba(127,255,0,.1))}.timeline-item{display:grid;grid-template-columns:38px 1fr;gap:0 1.5rem;margin-bottom:2rem}.timeline-marker{display:flex;flex-direction:column;align-items:center;padding-top:4px;z-index:1}.timeline-dot{width:14px;height:14px;border-radius:50%;background:#7FFF00;border:2px solid #080808;box-shadow:0 0 10px rgba(127,255,0,.5);flex-shrink:0}.timeline-dot.edu{background:#4da6ff;box-shadow:0 0 10px rgba(77,166,255,.5)}.timeline-dot.intern{background:#ff9f40;box-shadow:0 0 10px rgba(255,159,64,.4)}.timeline-card{background:#0e0e0e;border:1px solid #1c1c1c;border-left:3px solid #7FFF00;padding:1.3rem 1.5rem;transition:background .3s}.timeline-card:hover{background:#111}.timeline-card.edu{border-left-color:#4da6ff}.timeline-card.intern{border-left-color:#ff9f40}.card-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.3rem}.card-title{font-family:'Space Mono',monospace;font-size:.98rem;font-weight:700;color:#fff}.card-date{font-family:'Space Mono',monospace;font-size:.7rem;color:#7FFF00;background:rgba(127,255,0,.08);border:1px solid rgba(127,255,0,.2);padding:.18rem .55rem;white-space:nowrap}.card-date.edu{color:#4da6ff;background:rgba(77,166,255,.08);border-color:rgba(77,166,255,.2)}.card-date.intern{color:#ff9f40;background:rgba(255,159,64,.08);border-color:rgba(255,159,64,.2)}.card-company{font-size:.86rem;color:#7FFF00;margin:.2rem 0 .8rem;font-weight:500}.card-company.edu{color:#4da6ff}.card-company.intern{color:#ff9f40}.card-body{font-size:.88rem;color:#bbb;line-height:1.65;margin-bottom:.8rem}.sub-role{display:inline-block;font-size:.72rem;background:rgba(127,255,0,.06);border:1px solid rgba(127,255,0,.15);color:#7FFF00;padding:.15rem .5rem;margin-bottom:.4rem;font-family:'Space Mono',monospace}.card-bullets{list-style:none;padding:0;margin:.5rem 0 1rem}.card-bullets li{font-size:.87rem;color:#aaa;padding:.25rem 0 .25rem 1.2rem;position:relative;line-height:1.55}.card-bullets li::before{content:'▸';position:absolute;left:0;color:#7FFF00;font-size:.7rem;top:.34rem}.card-tags{display:flex;flex-wrap:wrap;gap:.35rem}.card-tag{font-size:.7rem;color:#777;background:#141414;border:1px solid #222;padding:.15rem .45rem;font-family:'Space Mono',monospace}.hl{color:#fff;font-weight:600}
+.projects-section{margin-bottom:3rem}.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:1rem}.project-card{background:#0e0e0e;border:1px solid #1c1c1c;padding:1.2rem;transition:all .3s;position:relative;overflow:hidden}.project-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#7FFF00,transparent);transform:scaleX(0);transform-origin:left;transition:transform .3s}.project-card:hover::after{transform:scaleX(1)}.project-card:hover{background:#111}.project-icon{font-size:1.3rem;color:#7FFF00;margin-bottom:.65rem;opacity:.75}.project-name{font-family:'Space Mono',monospace;font-size:.88rem;font-weight:700;color:#fff;margin-bottom:.6rem}.project-list{padding-left:1rem;color:#777;font-size:.82rem;line-height:1.65}
+#main-footer{text-align:center;padding:1rem;background:#000;height:60px}
+@media(max-width:768px){#about{padding:5rem 1.5rem 3rem}.hero-bio{grid-template-columns:1fr;text-align:center;justify-items:center}.hero-links{justify-content:center}.timeline::before{left:13px}.timeline-item{grid-template-columns:28px 1fr;gap:0 1rem}.card-header{flex-direction:column}.menu-nav,.menu-branding{float:none;width:100%;min-height:0}.menu-nav{height:75vh;transform:translate3d(-100%,0,0)}.menu-branding{height:25vh;transform:translate3d(100%,0,0)}}
+@media(max-width:500px){.hero-text h1{font-size:1.8rem}.skills-grid,.projects-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-    <header>
-        <div class="menu-btn">
-            <div class="btn-lines"></div>
-            <div class="btn-lines"></div>
-            <div class="btn-lines"></div>
+<header>
+  <div class="menu-btn"><div class="btn-lines"></div><div class="btn-lines"></div><div class="btn-lines"></div></div>
+  <nav class="menu">
+    <div class="menu-branding"><div class="portrait"></div></div>
+    <ul class="menu-nav">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item current"><a href="about.html" class="nav-link">About Me</a></li>
+      <li class="nav-item"><a href="work.html" class="nav-link">My Work</a></li>
+      <li class="nav-item"><a href="contact.html" class="nav-link">How To Reach Me</a></li>
+    </ul>
+  </nav>
+</header>
+<main id="about">
+  <div class="hero-bio">
+    <img src="img/portfolio.jpeg" alt="Mitul Panchal" class="hero-photo">
+    <div class="hero-text">
+      <h1>Mitul <span>Panchal</span></h1>
+      <p class="hero-role">Lead Data Engineer</p>
+      <p class="hero-summary">Lead Data Engineer with 7+ years designing enterprise data platforms, real-time pipelines, and data-driven APIs. Deep expertise in Azure, Databricks, and Lakehouse architecture. Currently at ICICI Lombard (BFSI) — automating complex processes, cutting costs, and owning analytics platforms at scale.</p>
+      <div class="hero-links">
+        <a href="https://www.linkedin.com/in/mitul-panchal-7a22a6a2/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/MitulPanchal" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+        <a href="#"><i class="fas fa-map-marker-alt"></i> Mumbai, India</a>
+      </div>
+    </div>
+  </div>
+  <div class="skills-section">
+    <p class="section-label">Core Skills</p>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="skill-card-title"><i class="fas fa-database"></i> Data Engineering</div><div class="skill-tags"><span class="skill-tag">ETL / ELT</span><span class="skill-tag">Batch Pipelines</span><span class="skill-tag">Real-Time Pipelines</span><span class="skill-tag">Medallion Architecture</span><span class="skill-tag">CDC</span><span class="skill-tag">Data Modeling</span></div></div>
+      <div class="skill-card"><div class="skill-card-title"><i class="fas fa-cloud"></i> Cloud &amp; Platform</div><div class="skill-tags"><span class="skill-tag">Azure</span><span class="skill-tag">ADLS</span><span class="skill-tag">Synapse</span><span class="skill-tag">Databricks</span><span class="skill-tag">Azure Functions</span><span class="skill-tag">Cosmos DB</span><span class="skill-tag">Unity Catalog</span><span class="skill-tag">Delta Lake</span></div></div>
+      <div class="skill-card"><div class="skill-card-title"><i class="fas fa-code"></i> Programming</div><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">PySpark</span><span class="skill-tag">SQL</span><span class="skill-tag">C#</span><span class="skill-tag">.NET Core</span></div></div>
+      <div class="skill-card"><div class="skill-card-title"><i class="fas fa-plug"></i> APIs &amp; Streaming</div><div class="skill-tags"><span class="skill-tag">REST APIs</span><span class="skill-tag">Real-Time Processing</span><span class="skill-tag">OCR Integration</span><span class="skill-tag">Databricks Workflows</span></div></div>
+      <div class="skill-card"><div class="skill-card-title"><i class="fas fa-shield-alt"></i> Governance &amp; Ops</div><div class="skill-tags"><span class="skill-tag">Access Control</span><span class="skill-tag">Cost Optimization</span><span class="skill-tag">Cluster Policies</span><span class="skill-tag">ELK Stack</span><span class="skill-tag">Workspace Mgmt (50+ users)</span></div></div>
+      <div class="skill-card"><div class="skill-card-title"><i class="fas fa-tools"></i> Tools</div><div class="skill-tags"><span class="skill-tag">Databricks Workflows</span><span class="skill-tag">Azure Synapse Pipelines</span><span class="skill-tag">Market EDM</span><span class="skill-tag">ELK Stack</span><span class="skill-tag">Git</span></div></div>
+    </div>
+  </div>
+  <div class="experience-section">
+    <p class="section-label">Experience &amp; Education</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-marker"><div class="timeline-dot"></div></div>
+        <div class="timeline-card">
+          <div class="card-header"><h4 class="card-title">ICICI Lombard General Insurance</h4><span class="card-date">Sep 2022 — Present</span></div>
+          <p class="card-company">Mumbai — BFSI Domain</p>
+          <div style="margin-bottom:.8rem"><span class="sub-role">Lead Data Engineer · Apr 2025 – Present</span><br><span class="sub-role">Senior Data Engineer · Apr 2024 – Mar 2025</span><br><span class="sub-role">Senior Developer · Sep 2022 – Mar 2024</span></div>
+          <ul class="card-bullets">
+            <li>Led development of enterprise Data Lake &amp; real-time integration platform on Azure + Databricks.</li>
+            <li>Automated SLR regulatory calculation — reduced processing time from <span class="hl">7 days to ~2 days</span>, enabling daily, MTD &amp; YTD refresh.</li>
+            <li>Designed ingestion architecture onboarding <span class="hl">30+ sources</span> (DB, API, files) with Bronze/Silver medallion layers.</li>
+            <li>Built Customer Eligibility API: CDC datasets → Cosmos DB → Azure Function APIs for mobile apps.</li>
+            <li>Migrated scoring from batch (15-min) to <span class="hl">near real-time</span> across 9 business features with OCR document validation.</li>
+            <li>Designed Cluster ID mapping to unify lead &amp; customer data across systems.</li>
+            <li>Databricks platform owner — <span class="hl">50+ user</span> workspace, Unity Catalog, cluster policies &amp; cost governance.</li>
+          </ul>
+          <div class="card-tags"><span class="card-tag">Azure</span><span class="card-tag">Databricks</span><span class="card-tag">Delta Lake</span><span class="card-tag">Synapse</span><span class="card-tag">Cosmos DB</span><span class="card-tag">Python</span><span class="card-tag">PySpark</span><span class="card-tag">REST APIs</span><span class="card-tag">Unity Catalog</span></div>
         </div>
-        <nav class="menu">
-            <div class="menu-branding">
-                <div class="portrait"></div>
-            </div>
-            <ul class="menu-nav">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">
-                        Home
-                    </a>
-                </li>
-                <li class="nav-item current">
-                    <a href="about.html" class="nav-link">
-                        About Me
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="work.html" class="nav-link">
-                        My Work
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">
-                        How To Reach Me
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main id="about">
-        <h1 class="lg-heading">
-            About
-            <span class="text-secondary"> Me</span>
-        </h1>
-        <h2 class="sm-heading">
-            Information about my Education and Work Experience
-        </h2>
-        <div class="about-info">
-            <img src="img/portfolio.jpeg" alt="Mitul Panchal" class="bio-image">
-            <div class="bio">
-                <h3 class="text-secondary">BIO</h3>
-                <p>Hey there want to know more about me? well I'm 22 y/o and from Surat, India. Exploring things like Football, Games and Coding. Currently learning Python and to be specific learning Django Framework along with basic concept of Python. </p>
-            </div>
-            <div class="job job-1">
-                <h3><b>Education</b></h3>
-                <p>Completed my schooling from Jeevan Bharti School, Surat.
-                    For Higher studies, I got admission in Birla Vishwakarma Manavidhyalaya Engineering College, Anand. Where I got my B.E. Degree in Computer Engineering. </p>
-            </div>
-            <div class="job job-2">
-                <h3><b>Internship</b></h3>
-                <p>I have done my Internship in Tata consultancy Service, Gandhinagar. In which we have to work on one project. Using Java programming language and spring framework we created simple Website which can perform CRUD operation. Time period of internship was 3 months.</p>
-            </div>
-            <div class="job job-3">
-                <h3><b>Job</b></h3>
-                <p>I got placed from my college in TCS and joined company in 17th September, 2018. In which first three month was ILP period. In ILP, they teach about c# language and create one ASP.NET MVC website in it. After that I joined TCS, Powai in Mumbai. Currently I'm working here in c# and windows service related project.</p>
-            </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker"><div class="timeline-dot"></div></div>
+        <div class="timeline-card">
+          <div class="card-header"><h4 class="card-title">Tata Consultancy Services (TCS)</h4><span class="card-date">Nov 2018 — Sep 2022</span></div>
+          <p class="card-company">Mumbai — System Engineer / Assistant System Engineer</p>
+          <ul class="card-bullets">
+            <li>Data &amp; application support using SQL for data correction and reconciliation.</li>
+            <li>Enhanced a shared C# logging framework used across multiple production applications.</li>
+            <li>Implemented ELK Stack for centralized log monitoring and analytics.</li>
+            <li>Transitioned to Data Analytics — built ETL pipelines using Python and Market EDM.</li>
+            <li>Migrated legacy ETL jobs to a .NET Core-based framework.</li>
+          </ul>
+          <div class="card-tags"><span class="card-tag">SQL</span><span class="card-tag">Python</span><span class="card-tag">C#</span><span class="card-tag">ELK Stack</span><span class="card-tag">.NET Core</span><span class="card-tag">ETL</span><span class="card-tag">Market EDM</span></div>
         </div>
-    </main>
-
-    <footer id="main-footer">
-        Copyrights &copy; 2018 By Mitul Panchal.
-    </footer>
-    <script src="js/main.js"></script>
-</body>
-
-</html>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker"><div class="timeline-dot intern"></div></div>
+        <div class="timeline-card intern">
+          <div class="card-header"><h4 class="card-title">Software Development Intern</h4><span class="card-date intern">2017 – 2018 · 3 months</span></div>
+          <p class="card-company intern">Tata Consultancy Services — Gandhinagar</p>
+          <p class="card-body">Built a full-stack CRUD web application using Java and Spring Framework — first exposure to enterprise software development.</p>
+          <div class="card-tags"><span class="card-tag">Java</span><span class="card-tag">Spring Framework</span><span class="card-tag">CRUD</span></div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker"><div class="timeline-dot edu"></div></div>
+        <div class="timeline-card edu">
+          <div class="card-header"><h4 class="card-title">B.E. in Computer Engineering</h4><span class="card-date edu">2014 — 2018</span></div>
+          <p class="card-company edu">Birla Vishwakarma Mahavidyalaya (BVM) — Anand, Gujarat</p>
+          <p class="card-body">Foundation in data structures, algorithms, OS, and software engineering. Final year project: Android app development.</p>
+          <div class="card-tags"><span class="card-tag">Computer Engineering</span><span class="card-tag">Android</span><span class="card-tag">Algorithms</span></div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker"><div class="timeline-dot edu"></div></div>
+        <div class="timeline-card edu">
+          <div class="card-header"><h4 class="card-title">Schooling</h4><span class="card-date edu">Up to 2014</span></div>
+          <p class="card-company edu">Jeevan Bharti School — Surat, Gujarat</p>
+          <p class="card-body">Completed primary and secondary education with a focus on science and mathematics.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="projects-section">
+    <p class="section-label">Key Projects</p>
+    <div class="projects-grid">
+      <div class="project-card"><div class="project-icon"><i class="fas fa-calculator"></i></div><div class="project-name">SLR Automation System</div><ul class="project-list"><li>Automated regulatory calculations across insurance products</li><li>Enabled daily &amp; near real-time refresh</li><li>Reduced manual effort by ~70%</li></ul></div>
+      <div class="project-card"><div class="project-icon"><i class="fas fa-layer-group"></i></div><div class="project-name">Enterprise Data Lake Platform</div><ul class="project-list"><li>Ingestion for 30+ sources</li><li>Medallion (Bronze/Silver/Gold) architecture</li><li>Reusable ingestion frameworks</li></ul></div>
+      <div class="project-card"><div class="project-icon"><i class="fas fa-user-check"></i></div><div class="project-name">Customer Eligibility API</div><ul class="project-list"><li>CDC-based customer processing</li><li>Cosmos DB storage</li><li>Azure Function APIs for mobile apps</li></ul></div>
+      <div class="project-card"><div class="project-icon"><i class="fas fa-bolt"></i></div><div class="project-name">Real-Time Event Scoring</div><ul class="project-list"><li>Near real-time from batch (15-min)</li><li>Business rule scoring for 9 features</li><li>OCR-based document verification</li></ul></div>
+    </div>
+  </div>
+</main>
+<footer id="main-footer">Copyrights &copy; 2025 By Mitul Panchal.</footer>
+<script>const b=document.querySelector('.menu-btn'),m=document.querySelector('.menu'),n=document.querySelector('.menu-nav'),d=document.querySelector('.menu-branding'),v=document.querySelectorAll('.nav-item');let s=false;b.addEventListener('click',()=>{if(!s){b.classList.add('close');m.classList.add('show');n.classList.add('show');d.classList.add('show');v.forEach(i=>i.classList.add('show'));s=true}else{b.classList.remove('close');m.classList.remove('show');n.classList.remove('show');d.classList.remove('show');v.forEach(i=>i.classList.remove('show'));s=false}});</script>
+</body></html>

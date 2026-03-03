@@ -1,12 +1,11 @@
 @import 'config';
 @import 'menu';
-* {
-    box-sizing: border-box;
-}
+
+* { box-sizing: border-box; }
 
 body {
-    @include config.background();
-    background: config.$primary-color;
+    @include background;
+    background: $primary-color;
     color: white;
     height: 100%;
     margin: 0;
@@ -21,7 +20,6 @@ h1, h2, h3 {
     &.sm-heading {
         margin-bottom: 2rem;
         padding: .2rem;
-        background: rgba(lighten($primary-color, $amount: 2), 0);
     }
 }
 
@@ -29,9 +27,7 @@ a { color: #fff; text-decoration: none; }
 
 header { position: fixed; z-index: 2; width: 100%; }
 
-.text-secondary {
-    color: $secondary-color;
-}
+.text-secondary { color: $secondary-color; }
 
 main {
     padding: 4rem;
@@ -39,10 +35,7 @@ main {
     .icons { margin-top: 1rem; }
     a {
         padding: 0.4rem;
-        &:hover {
-            color: $secondary-color;
-            @include easeOut();
-        }
+        &:hover { color: $secondary-color; @include easeOut(); }
     }
     &#home {
         overflow: hidden;
@@ -61,7 +54,7 @@ main {
         grid-area: bioimage;
         margin: auto;
         border-radius: 50%;
-        border: config.$secondary-color 3px solid;
+        border: $secondary-color 3px solid;
         width: 200px;
         height: 200px;
         object-fit: cover;
@@ -70,21 +63,239 @@ main {
         grid-area: bio;
         font-size: 1.5rem;
     }
-    .job-1 {
-        grid-area: job1;
-    }
-    .job-2 {
-        grid-area: job2;
-    }
-    .job-3 {
-        grid-area: job3;
-    }
-    .job {
-        background: lighten($primary-color, 5);
-        padding: 0.5rem;
-        border: white 3px solid;
+}
+
+// ── Hero bio (new about layout) ──
+.hero-bio {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    margin-bottom: 4rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #1a1a1a;
+}
+.hero-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 3px solid $secondary-color;
+    object-fit: cover;
+    box-shadow: 0 0 30px rgba(127, 255, 0, 0.2);
+}
+.hero-text {
+    h1 {
+        font-size: 2.6rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+        line-height: 1.1;
+        span { color: $secondary-color; }
     }
 }
+.hero-role {
+    font-size: 1rem;
+    color: $secondary-color;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+.hero-summary {
+    font-size: 0.97rem;
+    color: #bbb;
+    line-height: 1.75;
+    max-width: 680px;
+}
+.hero-links {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+    a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.82rem;
+        color: #aaa;
+        border: 1px solid #2a2a2a;
+        padding: 0.3rem 0.75rem;
+        @include easeOut;
+        &:hover {
+            color: $secondary-color;
+            border-color: $secondary-color;
+            background: rgba(127, 255, 0, 0.05);
+        }
+    }
+}
+
+// ── Section label ──
+.section-label {
+    font-size: 0.72rem;
+    color: $secondary-color;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    &::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: #1e1e1e;
+    }
+}
+
+// ── Skills grid ──
+.skills-section { margin-bottom: 4rem; }
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 1rem;
+}
+.skill-card {
+    background: #0e0e0e;
+    border: 1px solid #1c1c1c;
+    border-left: 3px solid $secondary-color;
+    padding: 1.1rem 1.2rem;
+    @include easeOut;
+    &:hover { background: #111; transform: translateY(-2px); }
+}
+.skill-card-title {
+    font-size: 0.73rem;
+    color: $secondary-color;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.skill-tag {
+    font-size: 0.77rem;
+    color: #ccc;
+    background: #181818;
+    border: 1px solid #2a2a2a;
+    padding: 0.18rem 0.5rem;
+}
+
+// ── Timeline ──
+.experience-section { margin-bottom: 4rem; }
+.timeline {
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        left: 18px;
+        top: 6px;
+        bottom: 6px;
+        width: 2px;
+        background: linear-gradient(to bottom, $secondary-color, rgba(127, 255, 0, 0.1));
+    }
+}
+.timeline-item {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 0 1.5rem;
+    margin-bottom: 2rem;
+}
+.timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4px;
+    z-index: 1;
+}
+.timeline-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: $secondary-color;
+    border: 2px solid #080808;
+    box-shadow: 0 0 10px rgba(127, 255, 0, 0.5);
+    flex-shrink: 0;
+    &.edu { background: #4da6ff; box-shadow: 0 0 10px rgba(77, 166, 255, 0.5); }
+    &.intern { background: #ff9f40; box-shadow: 0 0 10px rgba(255, 159, 64, 0.4); }
+}
+.timeline-card {
+    background: #0e0e0e;
+    border: 1px solid #1c1c1c;
+    border-left: 3px solid $secondary-color;
+    padding: 1.3rem 1.5rem;
+    @include easeOut;
+    &:hover { background: #111; }
+    &.edu { border-left-color: #4da6ff; }
+    &.intern { border-left-color: #ff9f40; }
+}
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+.card-title {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+.card-date {
+    font-size: 0.7rem;
+    color: $secondary-color;
+    background: rgba(127, 255, 0, 0.08);
+    border: 1px solid rgba(127, 255, 0, 0.2);
+    padding: 0.18rem 0.55rem;
+    white-space: nowrap;
+    &.edu { color: #4da6ff; background: rgba(77,166,255,0.08); border-color: rgba(77,166,255,0.2); }
+    &.intern { color: #ff9f40; background: rgba(255,159,64,0.08); border-color: rgba(255,159,64,0.2); }
+}
+.card-company {
+    font-size: 0.86rem;
+    color: $secondary-color;
+    margin: 0.2rem 0 0.8rem;
+    font-weight: 500;
+    &.edu { color: #4da6ff; }
+    &.intern { color: #ff9f40; }
+}
+.card-body { font-size: 0.88rem; color: #bbb; line-height: 1.65; margin-bottom: 0.8rem; }
+.sub-role {
+    display: inline-block;
+    font-size: 0.72rem;
+    background: rgba(127, 255, 0, 0.06);
+    border: 1px solid rgba(127, 255, 0, 0.15);
+    color: $secondary-color;
+    padding: 0.15rem 0.5rem;
+    margin-bottom: 0.4rem;
+}
+.card-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 1rem;
+    li {
+        font-size: 0.87rem;
+        color: #aaa;
+        padding: 0.25rem 0 0.25rem 1.2rem;
+        position: relative;
+        line-height: 1.55;
+        &::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: $secondary-color;
+            font-size: 0.7rem;
+            top: 0.34rem;
+        }
+    }
+}
+.card-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.card-tag {
+    font-size: 0.7rem;
+    color: #777;
+    background: #141414;
+    border: 1px solid #222;
+    padding: 0.15rem 0.45rem;
+}
+.hl { color: #fff; font-weight: 600; }
 
 // ── Key Projects ──
 .key-projects-section { margin-bottom: 3rem; }
@@ -144,8 +355,8 @@ main {
         object-fit: cover;
         &:hover {
             opacity: 0.8;
-            border-color: config.$secondary-color;
-            @include config.easeOut;
+            border-color: $secondary-color;
+            @include easeOut;
         }
     }
 }
@@ -162,9 +373,9 @@ main {
         border: 3px solid #fff;
         padding: 1.5rem 2.5rem;
         margin-bottom: 3rem;
-        @include config.easeOut;
+        @include easeOut;
         &:hover {
-            background: config.$secondary-color;
+            background: $secondary-color;
             color: #000;
             span { color: #000; }
         }
@@ -178,27 +389,16 @@ main {
     margin-left: 0.4rem;
     border: 0;
     margin-bottom: 0.3rem;
-    &:hover {
-        background: $secondary-color;
-        color: #000;
-    }
+    &:hover { background: $secondary-color; color: #000; }
 }
-
-.btn-dark {
-    @extend .btn;
-    background: lighten($primary-color, 30);
-    color: #fff;
-}
-
-.btn-light {
-    @extend .btn;
-    background: lighten($primary-color, 10);
-    color: #fff;
-}
+.btn-dark { @extend .btn; background: lighten($primary-color, 30); color: #fff; }
+.btn-light { @extend .btn; background: lighten($primary-color, 10); color: #fff; }
 
 #main-footer {
     text-align: center;
     padding: 1rem;
-    background: color.adjust(config.$primary-color, $lightness: -10%);
+    background: darken($color: $primary-color, $amount: 10);
     height: 60px;
 }
+
+@import 'mobile';

@@ -1,18 +1,17 @@
-//Menu Button
 .menu-btn {
     position: fixed;     // was: absolute
     z-index: 100;        // was: 3
     right: 35px;
     top: 35px;
     cursor: pointer;
-    @include config.easeOut();
+    @include easeOut();
     .btn-lines {
         width: 28px;
         height: 3px;
         margin: 0px 0px 5px 0px;
         background: white;
         @include easeOut();
-    } //Rotate into X with Menu Lines
+    }
     &.close {
         transform: rotate(180deg);
         .btn-lines {
@@ -26,13 +25,12 @@
 .menu {
     position: fixed;
     top: 0;
-    height: 100vh;
     width: 100%;
     height: 100vh;
     visibility: hidden;
-    &.show {
-        visibility: visible;
-    }
+    z-index: 50;         // above page content, below menu-btn
+    &.show { visibility: visible; }
+
     &-branding,
     &-nav {
         display: flex;
@@ -46,33 +44,25 @@
     }
 
     &-nav {
-        opacity: 0.97;
+        background: #000;    // was: opacity:0.97 on black — caused bleed-through
         margin: 0;
         padding: 0;
         list-style: none;
         transform: translate3d(0, -100%, 0);
         @include easeOut;
-        &.show {
-            //Slide in From Top
-            transform: translate3d(0, 0, 0);
-        }
-    } //Branding Side
+        &.show { transform: translate3d(0, 0, 0); }
+    }
+
     &-branding {
-        opacity: 0.97;
-        background: black;
+        background: #0d0d0d; // was: opacity:0.97 on black — caused bleed-through
         transform: translate3d(0, 100%, 0);
         @include easeOut;
-        &.show {
-            transform: translate3d(0, 0, 0);
-        }
+        &.show { transform: translate3d(0, 0, 0); }
         .portrait {
-            position: relative;
-            z-index: 1;
             width: 250px;
             height: 250px;
-            background: url(../img/portfolio.jpeg);
+            background: url(../img/portfolio.jpeg) center / cover no-repeat;
             border-radius: 50%;
-            background-size: contain;
             border: 3px solid $secondary-color;
         }
     }
@@ -80,13 +70,8 @@
     .nav-item {
         transform: translate3d(600px, 0, 0);
         @include easeOut;
-        &.show {
-            //Slide in from Right
-            transform: translate3d(0, 0, 0);
-        }
-        &.current>a {
-            color: $secondary-color;
-        }
+        &.show { transform: translate3d(0, 0, 0); }
+        &.current > a { color: $secondary-color; }
     }
 
     .nav-link {
@@ -99,9 +84,7 @@
         color: #fff;
         text-decoration: none;
         @include easeOut;
-        &:hover {
-            color: $secondary-color;
-        }
+        &:hover { color: $secondary-color; }
     }
 }
 
