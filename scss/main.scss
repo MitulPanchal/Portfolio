@@ -7,6 +7,8 @@ body {
     @include background;
     background: $primary-color;
     color: white;
+    min-height: 100vh;
+    overscroll-behavior: none;
     height: 100%;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
