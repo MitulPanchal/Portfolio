@@ -1,36 +1,57 @@
+// ── Menu Button ──
 .menu-btn {
-    position: fixed;     // was: absolute
-    z-index: 100;        // was: 3
+    position: fixed;
+    z-index: 100;
     right: 35px;
     top: 35px;
     cursor: pointer;
     @include easeOut();
+
+    // Custom hamburger with gap styling
     .btn-lines {
         width: 28px;
-        height: 3px;
-        margin: 0px 0px 5px 0px;
-        background: white;
+        height: 2px;
+        margin: 0 0 7px 0;
+        background: #fff;
         @include easeOut();
+
+        &:last-child { margin-bottom: 0; }
+
+        // Make middle line shorter for style
+        &:nth-child(2) {
+            width: 20px;
+            margin-left: 8px;
+        }
     }
+
+    &:hover .btn-lines {
+        background: $secondary-color;
+        &:nth-child(2) { width: 28px; margin-left: 0; }
+    }
+
+    // X close state
     &.close {
         transform: rotate(180deg);
         .btn-lines {
-            &:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-            &:nth-child(2) { opacity: 0; }
-            &:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+            &:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+            &:nth-child(2) { opacity: 0; width: 28px; margin-left: 0; }
+            &:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
         }
     }
 }
 
+// ── Menu Overlay ──
 .menu {
     position: fixed;
     top: 0;
     width: 100%;
     height: 100vh;
     visibility: hidden;
-    z-index: 50;         // above page content, below menu-btn
+    z-index: 50;
+
     &.show { visibility: visible; }
 
+    // Both panels share these base styles
     &-branding,
     &-nav {
         display: flex;
@@ -43,53 +64,186 @@
         overflow: hidden;
     }
 
+    // ── Right panel: nav links ──
     &-nav {
-        background: #000;    // was: opacity:0.97 on black — caused bleed-through
+        background: #000;
         margin: 0;
-        padding: 0;
+        padding: 0 3rem;
         list-style: none;
         transform: translate3d(0, -100%, 0);
         @include easeOut;
+        align-items: flex-start;  // left-align the links
+
         &.show { transform: translate3d(0, 0, 0); }
     }
 
+    // ── Left panel: branding ──
     &-branding {
-        background: #0d0d0d; // was: opacity:0.97 on black — caused bleed-through
+        background: #080808;
+        border-right: 1px solid #1a1a1a;
         transform: translate3d(0, 100%, 0);
         @include easeOut;
+        gap: 1.5rem;
+
         &.show { transform: translate3d(0, 0, 0); }
+
         .portrait {
-            width: 250px;
-            height: 250px;
+            width: 160px;
+            height: 160px;
             background: url(../img/portfolio.jpeg) center / cover no-repeat;
             border-radius: 50%;
             border: 3px solid $secondary-color;
+            box-shadow: 0 0 30px rgba(127, 255, 0, 0.2);
+        }
+
+        // Name & title below photo
+        .branding-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+        }
+
+        .branding-title {
+            font-family: 'Space Mono', monospace;
+            font-size: .65rem;
+            color: $secondary-color;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        // Divider
+        .branding-divider {
+            width: 40px;
+            height: 1px;
+            background: #2a2a2a;
+        }
+
+        // Quick contact links
+        .branding-links {
+            display: flex;
+            gap: .8rem;
+        }
+
+        .branding-link {
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #222;
+            color: #555;
+            font-size: .85rem;
+            text-decoration: none;
+            transition: all .3s;
+
+            &:hover {
+                color: $secondary-color;
+                border-color: rgba(127, 255, 0, 0.4);
+                background: rgba(127, 255, 0, 0.05);
+            }
+        }
+
+        // Available badge
+        .branding-badge {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: .62rem;
+            color: #444;
+            letter-spacing: 1px;
+
+            .badge-dot {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: $secondary-color;
+                box-shadow: 0 0 6px rgba(127, 255, 0, 0.6);
+                animation: badgePulse 2s infinite;
+            }
         }
     }
 
+    // ── Nav items ──
     .nav-item {
         transform: translate3d(600px, 0, 0);
         @include easeOut;
+        width: 100%;
+        border-bottom: 1px solid #0f0f0f;
+
+        &:first-child { border-top: 1px solid #0f0f0f; }
+
         &.show { transform: translate3d(0, 0, 0); }
-        &.current > a { color: $secondary-color; }
+
+        &.current > a {
+            color: $secondary-color;
+            &::before { transform: scaleX(1); }
+        }
     }
 
     .nav-link {
-        display: inline-block;
-        position: relative;
-        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        font-family: 'Inter', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
         text-transform: uppercase;
-        padding: 1rem 0;
-        font-weight: 300;
+        letter-spacing: 2px;
+        padding: 1.3rem 0;
         color: #fff;
         text-decoration: none;
+        position: relative;
         @include easeOut;
-        &:hover { color: $secondary-color; }
+
+        // Number prefix (01, 02...) added via CSS counter
+        &::before {
+            content: counter(nav-counter, decimal-leading-zero);
+            counter-increment: nav-counter;
+            font-family: 'Space Mono', monospace;
+            font-size: .7rem;
+            color: #333;
+            letter-spacing: 1px;
+            align-self: flex-start;
+            margin-top: .2rem;
+            transition: color .3s;
+        }
+
+        // Arrow icon on right
+        &::after {
+            content: '→';
+            font-size: 1rem;
+            color: #222;
+            transition: all .3s;
+            transform: translateX(-8px);
+        }
+
+        &:hover {
+            color: $secondary-color;
+            padding-left: .5rem;
+            &::before { color: $secondary-color; }
+            &::after { color: $secondary-color; transform: translateX(0); }
+        }
+    }
+
+    // Start counter
+    &-nav { counter-reset: nav-counter; }
+}
+
+// ── Staggered slide delays ──
+@for $x from 1 through 4 {
+    .nav-item:nth-child(#{$x}) {
+        transition-delay: $x * 0.06s;
     }
 }
 
-@for $x from 1 through 4 {
-    .nav-item:nth-child(#{$x}) {
-        transition-delay: $x * 0.05s;
-    }
+// ── Pulse animation ──
+@keyframes badgePulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .3; }
 }
